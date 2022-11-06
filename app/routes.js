@@ -37,9 +37,8 @@ module.exports = function (app, passport, db) {
     });
     const order = Object.fromEntries(filtered);
     order.time = new Date().toLocaleTimeString()
-    order.completed = false 
 
-    db.collection('orders').save({ order: order}, (err, result) => {
+    db.collection('orders').save({ order: order, completed: false}, (err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
       res.redirect('/profile')
@@ -49,7 +48,7 @@ module.exports = function (app, passport, db) {
   app.put('/completed_orders', (req, res) => {
     console.log(req.body)
     db.collection('orders')
-      .findOneAndUpdate({ id: req.body.id }, {
+      .findOneAndUpdate({ name:req.body.name}, {
         $set: {
           completed: true
         }
@@ -62,8 +61,8 @@ module.exports = function (app, passport, db) {
       })
   })
   
-  app.delete('/orders', (req, res) => {
-    db.collection('orders').findOneAndDelete({_id : ObjectId(req.body._id) }, (err, result) => {
+  app.delete('/delete', (req, res) => {
+    db.collection('orders').findOneAndDelete({name:req.body.name}, (err, result) => {
       if (err) return res.send(500, err)
       res.send('Order deleted!')
     })

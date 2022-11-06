@@ -1,19 +1,14 @@
-var thumbUp = document.getElementsByClassName("fa-thumbs-up");
-var thumbDown = document.getElementsByClassName("fa-thumbs-down")
+var ordersUp = document.getElementsByClassName("ordersReady");
 var trash = document.getElementsByClassName("fa-trash-o");
 
-Array.from(thumbUp).forEach(function(element) {
+Array.from(ordersUp).forEach(function(element) {
       element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
-        fetch('messages', {
+        const name = this.parentNode.childNodes[1].innerText
+        fetch('completed_orders', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             'name': name,
-            'msg': msg,
-            'thumbUp':thumbUp
           })
         })
         .then(response => {
@@ -26,42 +21,18 @@ Array.from(thumbUp).forEach(function(element) {
       });
 });
 
-Array.from(thumbDown).forEach(function(element) {
-  element.addEventListener('click', function(){
-    const name = this.parentNode.parentNode.childNodes[1].innerText
-    const msg = this.parentNode.parentNode.childNodes[3].innerText
-    const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
-    fetch('downVote', {
-      method: 'put',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        'name': name,
-        'msg': msg,
-        'thumbDown':thumbDown
-      })
-    })
-    .then(response => {
-      if (response.ok) return response.json()
-    })
-    .then(data => {
-      console.log(data)
-      window.location.reload(true)
-    })
-  });
-});
 
 Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        fetch('messages', {
+        const name = this.parentNode.childNodes[1].innerText
+        fetch('delete', {
           method: 'delete',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             'name': name,
-            'msg': msg
+            // _id: ObjectId(req.body._id)
           })
         }).then(function (response) {
           window.location.reload()
