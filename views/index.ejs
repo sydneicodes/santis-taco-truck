@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Santi's Tacos Truck</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Santi's Taco Truck</h1>
+
+        <div>
+            <a href="/login">Employee Log-In</a>
+        </div>
+
+        <form action="/taco_order" method="POST" name="tacoOrderForm">
+            <label for="">
+                Customer Name:
+                <input type="text" name="name">
+            </label>
+
+            <fieldset>
+                <legend>Tacos:</legend>
+
+                <label for="chickenTaco">Pollo/Chicken</label>
+                <input type="number" id="chicken" name="chicken" min="0" max="10">
+
+                <label for="steakTaco">Asada/Steak</label>
+                <input type="number" id="steak" name="steak" min="0" max="10">
+
+                <label for="porkTaco">Al Pastor/Pork</label>
+                <input type="number" id="pork" name="pork" min="0" max="10">
+
+                <label for="veggieTaco">Vegetariano/Vegetarian</label>
+                <input type="number" id="veggie" name="veggie" min="0" max="10">
+
+                <label for="shrimpTaco">Camaron/Shrimp</label>
+                <input type="number" id="shrimp" name="shrimp" min="0" max="10">
+
+                <label for="fishTaco">Pescado/Fish</label>
+                <input type="number" id="fish" name="fish" min="0" max="10">
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Toppings:</legend>
+                
+              
+                    <label for="toppings">Onions</label>
+                    <input type="checkbox" id="onions" name="onions">
+               
+
+             
+                    <label for="toppings">Cilantro</label>
+                    <input type="checkbox" id="cilantro" name="cilantro">
+
+               
+                    <label for="toppings">Beans</label>
+                    <input type="checkbox" id="beans" name="beans">
+           
+
+                    <label for="toppings">Lime</label>
+                    <input type="checkbox" id="lime" name="lime">
+
+
+                    <label for="toppings">Salsa Roja</label>
+                    <input type="checkbox" id="lime" name="salsaRoja">
+
+
+                    <label for="toppings">Salsa Verde</label>
+                    <input type="checkbox" id="lime" name="salsaVerde">
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Note:</legend>
+                <textarea name="note" placeholder="Note Any Allergens or Special Requests"></textarea>
+            </fieldset>
+
+            <label for="submitOrder">
+                <input type="submit" id="submit">
+            </label>
+
+        </form>
+    </div>
+</body>
+
+</html>
