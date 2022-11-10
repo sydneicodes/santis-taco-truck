@@ -1,0 +1,21 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+
+}
+
+img{
+  height: 200px;
+}
+
+.completed {
+  background: green;
+  opacity: .8;
+  font-style: italic;
+}
+
+.hide {
+  display: none;
+}
+
+

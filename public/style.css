@@ -1,17 +1,49 @@
-body{
-  padding-top:80px;
-  word-wrap:break-word;
-}
-img{
-  height: 200px;
+html {
+    height: 100%;
 }
 
-.completed {
-  background: green;
-  opacity: .8;
-  font-style: italic;
+body {
+    text-align: center;
+    background: #ee5135;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.hide {
-  display: none;
+.employeeLogin {
+    margin-bottom: 10px;
 }
+
+.employeeLogin a {
+    color: white;
+}
+
+fieldset {
+    margin-left: 17em;
+    margin-right: 17em;
+    border-radius: 20px;
+}
+
+form {
+    text-align: center;
+    padding-top: 10em;
+    width: 62.9em;
+    margin-right: 10px;
+}
+
+.receipt {
+    background-image: url('../img/receiptTwo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30em;
+    width: 60em;
+    margin-left: 5em;
+}
+
+#logo {
+    width: 7em;
+}
+
+#truck {
+    width: 30em;
+}
+

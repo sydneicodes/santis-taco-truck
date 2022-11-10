@@ -13,7 +13,6 @@ module.exports = function (app, passport, db) {
   app.get('/profile', isLoggedIn, function (req, res) {
     db.collection('orders').find().toArray((err, result) => {
       if (err) return console.log(err)
-      console.log(result)
       res.render('profile.ejs', {
         user: req.user,
         orders: result
@@ -30,6 +29,7 @@ module.exports = function (app, passport, db) {
   // message board routes ===============================================================
 
   app.post('/taco_order', (req, res) => {
+
     // Filter through req.body and only return the properties that don't have an empty string value
     let arr = Object.entries(req.body)
     const filtered = arr.filter(([key, value]) => {
@@ -37,8 +37,9 @@ module.exports = function (app, passport, db) {
     });
     const order = Object.fromEntries(filtered);
     order.time = new Date().toLocaleTimeString()
+    order.completed = false
 
-    db.collection('orders').save({ order: order, completed: false}, (err, result) => {
+    db.collection('orders').save(order, (err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
       res.redirect('/profile')
@@ -46,22 +47,24 @@ module.exports = function (app, passport, db) {
   })
 
   app.put('/completed_orders', (req, res) => {
-    console.log(req.body)
     db.collection('orders')
-      .findOneAndUpdate({ name:req.body.name}, {
+      .findOneAndUpdate({ name:req.body.name.trim()}, {
         $set: {
           completed: true
         }
       }, {
         sort: { _id: -1 },
-        upsert: true
+        upsert: false
       }, (err, result) => {
         if (err) return res.send(err)
         res.send(result)
       })
   })
+
+ 
   
   app.delete('/delete', (req, res) => {
+    console.log(req.body, 'DELETE REQ')
     db.collection('orders').findOneAndDelete({name:req.body.name}, (err, result) => {
       if (err) return res.send(500, err)
       res.send('Order deleted!')

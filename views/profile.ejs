@@ -4,7 +4,7 @@
     <title>Santi's Taco Truck</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
 <div class="container">
@@ -20,20 +20,20 @@
           <ul class="orders">
           <% for(var i=0; i<orders.length; i++) {%>
             <li <%= orders[i].completed ? "class=completed" : "class=incomplete" %>>
-              <span> Name: <%= orders[i].order.name %></span>
-              <span> Order Placed At: <%= orders[i].order.time %></span>
-              <span><%= orders[i].order.chicken ? orders[i].order.chicken + " chicken tacos":"" %></span>
-              <span><%= orders[i].order.steak ? orders[i].order.steak + " steak tacos":""%></span>
-              <span><%= orders[i].order.pork ? orders[i].order.pork + " pork tacos":""%></span>
-              <span><%= orders[i].order.veggie ? orders[i].order.veggie + " veggie tacos":""%></span>
-              <span><%= orders[i].order.shrimp ? orders[i].order.shrimp + " shrimp tacos":"" %></span>
-              <span><%= orders[i].order.fish ? orders[i].order.fish + " fish tacos":""%></span>
-              <span><%= orders[i].order.onions ? orders[i].order.onions + " Onions":"" %></span>
-              <span><%= orders[i].order.cilantro ? orders[i].order.cilantro + " Cilantro":"" %></span>
-              <span><%= orders[i].order.beans ? orders[i].order.beans + " Beans":""%></span>
-              <span><%= orders[i].order.lime ? orders[i].order.lime + " Lime":""%></span>
-              <span><%= orders[i].order.salsaRoja ? orders[i].order.salsaRoja + " Salsa Roja":""%></span>
-              <span><%= orders[i].order.salsaVerde ? orders[i].order.salsaVerde + " Salsa Verde":""%></span>
+             <span><%= orders[i].name %></span>
+              <span> Order Placed At: <%= orders[i].time %></span>
+              <span><%= orders[i].chicken ? orders[i].chicken + " chicken tacos":"" %></span>
+              <span><%= orders[i].steak ? orders[i].steak + " steak tacos":""%></span>
+              <span><%= orders[i].pork ? orders[i].pork + " pork tacos":""%></span>
+              <span><%= orders[i].veggie ? orders[i].veggie + " veggie tacos":""%></span>
+              <span><%= orders[i].shrimp ? orders[i].shrimp + " shrimp tacos":"" %></span>
+              <span><%= orders[i].fish ? orders[i].fish + " fish tacos":""%></span>
+              <span><%= orders[i].onions ? orders[i].onions + " Onions":"" %></span>
+              <span><%= orders[i].cilantro ? orders[i].cilantro + " Cilantro":"" %></span>
+              <span><%= orders[i].beans ? orders[i].beans + " Beans":""%></span>
+              <span><%= orders[i].lime ? orders[i].lime + " Lime":""%></span>
+              <span><%= orders[i].salsaRoja ? orders[i].salsaRoja + " Salsa Roja":""%></span>
+              <span><%= orders[i].salsaVerde ? orders[i].salsaVerde + " Salsa Verde":""%></span>
 
               <button <%= orders[i].completed ? "class=hide" : "class=ordersReady" %>>Orders Ready!</button>
 

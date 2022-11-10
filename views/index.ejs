@@ -3,20 +3,25 @@
 
 <head>
     <title>Santi's Tacos Truck</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 
 <body>
-    <div class="container">
-        <h1>Santi's Taco Truck</h1>
 
-        <div>
+    <img id="logo" src="img/logo.png">
+
+    <div class="container">
+
+        <img id="truck" src="img/truck.png">
+
+        <div class="employeeLogin">
             <a href="/login">Employee Log-In</a>
         </div>
 
+    <section class="receipt">
         <form action="/taco_order" method="POST" name="tacoOrderForm">
             <label for="">
                 Customer Name:
@@ -86,6 +91,7 @@
             </label>
 
         </form>
+    </section>
     </div>
 </body>
 
