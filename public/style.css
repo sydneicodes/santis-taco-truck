@@ -47,3 +47,7 @@ form {
     width: 30em;
 }
 
+.firstName {
+    font-weight: bold;
+}
+

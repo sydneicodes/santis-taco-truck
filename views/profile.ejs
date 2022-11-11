@@ -20,9 +20,9 @@
           <ul class="orders">
           <% for(var i=0; i<orders.length; i++) {%>
             <li <%= orders[i].completed ? "class=completed" : "class=incomplete" %>>
-             <span><%= orders[i].name %></span>
+             <span class="firstName"><%= orders[i].name %></span>
               <span> Order Placed At: <%= orders[i].time %></span>
-              <span><%= orders[i].chicken ? orders[i].chicken + " chicken tacos":"" %></span>
+              <span><%= orders[i].chicken ? orders[i].chicken + " chicken tacos": "" %></span>
               <span><%= orders[i].steak ? orders[i].steak + " steak tacos":""%></span>
               <span><%= orders[i].pork ? orders[i].pork + " pork tacos":""%></span>
               <span><%= orders[i].veggie ? orders[i].veggie + " veggie tacos":""%></span>

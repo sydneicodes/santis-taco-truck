@@ -1,11 +1,26 @@
 body{
   padding-top:80px;
   word-wrap:break-word;
-
+  background: #ee5135;
+  text-align: center;
 }
 
 img{
   height: 200px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 12px;
 }
 
 .completed {
